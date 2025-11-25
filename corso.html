@@ -1,9 +1,49 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <title>Corso</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dettaglio Corso – Spazio</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .course-hero {
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      padding: 50px 20px;
+      color: white;
+      text-align: center;
+      border-radius: 0 0 32px 32px;
+    }
+    .course-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .course-meta {
+      opacity: 0.9;
+      font-size: 1rem;
+    }
+
+    .course-box {
+      background: white;
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      animation: fadeIn 0.4s ease;
+    }
+
+    #corso-container img {
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 
 <body>
@@ -12,11 +52,47 @@
   <a class="btn" href="corsi.html">Torna ai corsi</a>
 </header>
 
-<div class="container" id="corso-container">
-  <p>Caricamento...</p>
+<section class="course-hero">
+  <h2 class="course-title" id="corso-title">Caricamento...</h2>
+  <p class="course-meta" id="corso-meta"></p>
+</section>
+
+<div class="container">
+  <div class="course-box" id="corso-container">
+    <p>Caricamento contenuti...</p>
+  </div>
 </div>
 
 <script src="script.js"></script>
+
+<script>
+  // Enriched loader for detail view
+  function renderCourseDetail(corso) {
+    const c = corso.fields;
+
+    document.getElementById('corso-title').textContent = c.titolo;
+
+    document.getElementById('corso-meta').textContent =
+      `${c.eta_min || ''} - ${c.eta_max || ''} anni • ${c.orario || ''}`;
+
+    document.getElementById('corso-container').innerHTML = `
+      ${c.immagine ? `<img src="${c.immagine}" alt="${c.titolo}" />` : ''}
+      <h3>Descrizione</h3>
+      <p>${c.descrizione || ''}</p>
+
+      <h3>Dettagli</h3>
+      <p><strong>Indirizzo:</strong> ${c.indirizzo || '—'}</p>
+      <p><strong>Orario:</strong> ${c.orario || '—'}</p>
+      <p><strong>Periodo:</strong> ${c.data_inizio || ''} → ${c.data_fine || ''}</p>
+
+      <h3>Contatti</h3>
+      <p><strong>Email:</strong> ${c.contatto_email || '—'}</p>
+      <p><strong>Telefono:</strong> ${c.contatto_tel || '—'}</p>
+
+      ${c.link_iscrizione ? `<a class="btn" href="${c.link_iscrizione}" target="_blank">Iscriviti</a>` : ''}
+    `;
+  }
+</script>
 
 </body>
 </html>
