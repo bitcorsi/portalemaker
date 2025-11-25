@@ -1,135 +1,86 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Spazio - Corsi e Laboratori</title>
-  <style>
-    :root {
-      --primary: #4f46e5;
-      --primary-dark: #3730a3;
-      --bg: #f8f9ff;
-      --text: #1f1f1f;
-      --radius: 16px;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    header {
-      background: white;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #e5e7eb;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-
-    nav a {
-      margin-left: 12px;
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 600;
-    }
-
-    .hero {
-      padding: 60px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #4f46e5, #6366f1);
-      color: white;
-      border-radius: 0 0 32px 32px;
-    }
-
-    .hero h2 {
-      font-size: 2rem;
-      margin: 0 0 10px 0;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 12px 20px;
-      border-radius: var(--radius);
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.2s ease;
-    }
-
-    .btn:hover {
-      background: var(--primary-dark);
-    }
-
-    @media (max-width: 600px) {
-      .hero h2 { font-size: 1.6rem; }
-      header { flex-direction: column; gap: 10px; }
-      nav a { margin-left: 8px; font-size: 0.9rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spazio Corsi - Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>Spazio Corsi</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="corsi.html" class="nav-link">Corsi</a></li>
+                <li><a href="proponi.html" class="nav-link">Proponi</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
-<header>
-  <h1>Spazio</h1>
-  <nav>
-    <a href="corsi.html">Corsi</a>
-    <a href="proponi.html">Inserisci corso</a>
-  </nav>
-</header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Impara, Cresci, Condividi</h1>
+                <p class="hero-subtitle">Scopri corsi unici e condividi la tua conoscenza con la community</p>
+                <div class="hero-buttons">
+                    <a href="corsi.html" class="btn btn-primary">Esplora Corsi</a>
+                    <a href="proponi.html" class="btn btn-secondary">Proponi un Corso</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <div class="card-icon">🎨</div>
+                    <h4>Design</h4>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-icon">💻</div>
+                    <h4>Tecnologia</h4>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="card-icon">📚</div>
+                    <h4>Formazione</h4>
+                </div>
+            </div>
+        </section>
 
-<section class="hero">
-  <h2>Scopri corsi e laboratori nella tua città</h2>
-  <p>Un portale moderno, veloce e perfetto per smartphone.</p>
-  <br>
-  <a class="btn" href="corsi.html">Esplora i corsi</a>
-</section>
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Perché Scegliere Noi</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Apprendimento Pratico</h3>
+                        <p>Metodi innovativi che mettono in pratica ciò che impari</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>Community Attiva</h3>
+                        <p>Connettiti con altri studenti e insegnanti</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💫</div>
+                        <h3>Contenuti Esclusivi</h3>
+                        <p>Accesso a materiali e corsi unici</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<div class="container">
-  <h2>Categorie Popolari</h2>
-  <div class="card">Arte e creatività</div>
-  <div class="card">Sport e movimento</div>
-  <div class="card">Musica e teatro</div>
-  <div class="card">STEM e tecnologia</div>
-</div>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Spazio Corsi. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
