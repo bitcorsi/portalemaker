@@ -8,30 +8,33 @@
 </head>
 <body>
     <header class="header">
-        <nav class="nav">
+        <nav class="nav container">
             <div class="nav-brand">
-                <h1>Spazio Corsi</h1>
+                <a href="index.html"><h1>Spazio Corsi</h1></a>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="corsi.html" class="nav-link active">Corsi</a></li>
                 <li><a href="proponi.html" class="nav-link">Proponi</a></li>
             </ul>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-icon" aria-label="Cambia tema">🌙</button>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="courses-hero">
+        <section class="courses-hero" data-aos="fade-down">
             <div class="container">
                 <h1 class="page-title">I Nostri Corsi</h1>
-                <p class="page-subtitle">Scopri tutte le opportunità di apprendimento</p>
+                <p class="page-subtitle">Scopri tutte le opportunità di apprendimento e trova il tuo percorso ideale.</p>
                 
-                <div class="filters">
+                <div class="filters" data-aos="fade-up" data-aos-delay="200">
                     <button class="filter-btn active" data-filter="tutti">Tutti</button>
                     <button class="filter-btn" data-filter="design">Design</button>
                     <button class="filter-btn" data-filter="tecnologia">Tecnologia</button>
@@ -44,8 +47,15 @@
         <section class="courses-section">
             <div class="container">
                 <div class="courses-grid" id="coursesContainer">
-                    <!-- I corsi verranno caricati dinamicamente via JavaScript -->
                     <div class="course-skeleton">
+                        <div class="skeleton-image"></div>
+                        <div class="skeleton-content">
+                            <div class="skeleton-title"></div>
+                            <div class="skeleton-text"></div>
+                            <div class="skeleton-price"></div>
+                        </div>
+                    </div>
+                     <div class="course-skeleton">
                         <div class="skeleton-image"></div>
                         <div class="skeleton-content">
                             <div class="skeleton-title"></div>
