@@ -1,79 +1,89 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutti i Corsi - Spazio Corsi</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Corsi – Portale Maker</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --bg: #f4f6ff;
+      --radius: 20px;
+    }
+
+    body { background: var(--bg); font-family: 'Inter', sans-serif; margin:0; }
+
+    header {
+      position: sticky; top: 0; background: white; padding: 18px 26px;
+      display:flex; justify-content: space-between; align-items:center;
+      border-bottom:1px solid #e5e7eb; z-index:100;
+    }
+    header h1 { margin:0; font-size:1.6rem; font-weight:800; }
+    nav a { margin-left:14px; color:var(--primary); text-decoration:none; font-weight:600; }
+
+    .hero {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      padding:70px 20px; text-align:center; color:white; border-radius:0 0 32px 32px;
+    }
+    .hero h2 { margin:0; font-size:2.3rem; font-weight:900; }
+    .hero p { margin-top:10px; opacity:0.95; font-size:1.1rem; }
+
+    /* Search */
+    #search {
+      width:100%; padding:15px; border-radius:var(--radius);
+      border:1px solid #ddd; margin-top:25px; font-size:1rem;
+    }
+
+    /* GRID */
+    .grid {
+      display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+      gap:24px; margin-top:30px;
+    }
+
+    .course-card {
+      background:white; border-radius:var(--radius);
+      box-shadow:0 4px 14px rgba(0,0,0,0.08);
+      overflow:hidden; transition:0.25s;
+    }
+    .course-card:hover { transform:translateY(-6px); }
+
+    .course-card img { width:100%; height:160px; object-fit:cover; }
+    .course-info { padding:18px; }
+    .course-title { font-size:1.25rem; font-weight:800; margin:0 0 8px 0; }
+    .course-meta { font-size:0.9rem; color:#666; margin-bottom:10px; }
+
+  </style>
 </head>
+
 <body>
-    <header class="header">
-        <nav class="nav container">
-            <div class="nav-brand">
-                <a href="index.html"><h1>Spazio Corsi</h1></a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="corsi.html" class="nav-link active">Corsi</a></li>
-                <li><a href="proponi.html" class="nav-link">Proponi</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button id="theme-toggle" class="btn-icon" aria-label="Cambia tema">🌙</button>
-                <div class="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    </header>
+<header>
+  <h1>Portale Maker</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="proponi.html">Proponi</a>
+  </nav>
+</header>
 
-    <main>
-        <section class="courses-hero" data-aos="fade-down">
-            <div class="container">
-                <h1 class="page-title">I Nostri Corsi</h1>
-                <p class="page-subtitle">Scopri tutte le opportunità di apprendimento e trova il tuo percorso ideale.</p>
-                
-                <div class="filters" data-aos="fade-up" data-aos-delay="200">
-                    <button class="filter-btn active" data-filter="tutti">Tutti</button>
-                    <button class="filter-btn" data-filter="design">Design</button>
-                    <button class="filter-btn" data-filter="tecnologia">Tecnologia</button>
-                    <button class="filter-btn" data-filter="business">Business</button>
-                    <button class="filter-btn" data-filter="creativita">Creatività</button>
-                </div>
-            </div>
-        </section>
+<section class="hero">
+  <h2>Esplora tutti i corsi</h2>
+  <p>Dai laboratori creativi alla tecnologia: tutto in un unico posto.</p>
+</section>
 
-        <section class="courses-section">
-            <div class="container">
-                <div class="courses-grid" id="coursesContainer">
-                    <div class="course-skeleton">
-                        <div class="skeleton-image"></div>
-                        <div class="skeleton-content">
-                            <div class="skeleton-title"></div>
-                            <div class="skeleton-text"></div>
-                            <div class="skeleton-price"></div>
-                        </div>
-                    </div>
-                     <div class="course-skeleton">
-                        <div class="skeleton-image"></div>
-                        <div class="skeleton-content">
-                            <div class="skeleton-title"></div>
-                            <div class="skeleton-text"></div>
-                            <div class="skeleton-price"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+<div class="container">
+  <input id="search" type="text" placeholder="Cerca un corso..." />
+  <div class="grid" id="lista-corsi">
+    <p>Caricamento corsi...</p>
+  </div>
+</div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Spazio Corsi. Tutti i diritti riservati.</p>
-        </div>
-    </footer>
+<script src="script.js"></script>
+<script>
+  const searchInput = document.getElementById('search');
+  searchInput.addEventListener('input', () => filterCourses(searchInput.value.toLowerCase()));
+</script>
 
-    <script src="script.js"></script>
 </body>
 </html>
